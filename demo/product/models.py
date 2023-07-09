@@ -51,7 +51,7 @@ class Product(models.Model):
     brand = models.ForeignKey(
         Brand,
         verbose_name=_("Product"),
-        on_delete=models.RESTRICT,
+        on_delete=models.SET_NULL,
         related_name="images",
         db_index=True,
         null=True,
@@ -80,7 +80,7 @@ class ProductImage(models.Model):
     product = models.ForeignKey(
         Product,
         verbose_name=_("Product"),
-        on_delete=models.RESTRICT,
+        on_delete=models.CASCADE,
         related_name="images",
         db_index=True,
     )
