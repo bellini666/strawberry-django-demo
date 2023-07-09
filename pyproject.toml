@@ -13,6 +13,7 @@ django = "^4.2.3"
 django-choices-field = "^2.2.2"
 strawberry-graphql = "^0.194.4"
 strawberry-graphql-django = "^0.10.5"
+pillow = "^10.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -83,6 +84,7 @@ ignore = [
   "TD002",
   "TD003",
   "TRY003",
+  "RUF012",
 ]
 target-version = "py38"
 exclude = [
