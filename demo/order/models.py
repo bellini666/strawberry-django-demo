@@ -161,6 +161,10 @@ class CartItem(models.Model):
         validators=[MinValueValidator(1)],
     )
 
+    @model_property(only=["product__price"], select_related=["product"])
+    def price(self) -> decimal.Decimal:
+        return self.product.price
+
     @model_property(only=["quantity", "product__price"], select_related=["product"])
     def total(self) -> decimal.Decimal:
-        return self.quantity * self.product.price
+        return self.quantity * self.price
