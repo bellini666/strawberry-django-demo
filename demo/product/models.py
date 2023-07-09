@@ -23,6 +23,9 @@ class Brand(models.Model):
         max_length=255,
     )
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class Product(models.Model):
     """Product model."""
@@ -67,6 +70,9 @@ class Product(models.Model):
         max_digits=24,
         decimal_places=2,
     )
+
+    def __str__(self) -> str:
+        return self.name
 
 
 class ProductImage(models.Model):

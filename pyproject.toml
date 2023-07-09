@@ -9,13 +9,16 @@ packages = [{ include = "strawberry_django_demo" }]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+daphne = "^4.0.0"
 django = "^4.2.3"
 django-choices-field = "^2.2.2"
+django-debug-toolbar = "^4.1.0"
+django-extensions = "^3.2.3"
+pillow = "^10.0.0"
+requests = "^2.31.0"
 strawberry-graphql = "^0.194.4"
 strawberry-graphql-django = "^0.10.5"
-pillow = "^10.0.0"
 typing-extensions = "^4.7.1"
-daphne = "^4.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
