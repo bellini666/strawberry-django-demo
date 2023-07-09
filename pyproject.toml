@@ -1,0 +1,147 @@
+[tool.poetry]
+name = "strawberry-django-demo"
+version = "0.1.0"
+description = ""
+authors = ["Thiago Bellini Ribeiro <thiago@bellini.dev>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "strawberry_django_demo" }]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+django = "^4.2.3"
+django-choices-field = "^2.2.2"
+strawberry-graphql = "^0.194.4"
+strawberry-graphql-django = "^0.10.5"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+django-debug-toolbar = "^4.1.0"
+django-types = "^0.17.0"
+ruff = "^0.0.277"
+
+[tool.ruff]
+line-length = 100
+select = [
+  "A",
+  "ASYNC100",
+  "ASYNC101",
+  "ASYNC102",
+  "B",
+  "BLE",
+  "C4",
+  "COM",
+  "D",
+  "D2",
+  "D3",
+  "D4",
+  "DTZ",
+  "E",
+  "ERA",
+  "EXE",
+  "F",
+  "FLY",
+  "G",
+  "I",
+  "ICN001",
+  "INP",
+  "INT",
+  "ISC",
+  "N",
+  "PGH",
+  "PIE",
+  "PL",
+  "PT",
+  "PTH",
+  "PYI",
+  "Q",
+  "RET",
+  "RSE",
+  "RUF",
+  "TD",
+  "SIM",
+  "SLF",
+  "T10",
+  "T20",
+  "TCH",
+  "TID",
+  "TRY",
+  "UP",
+  "W",
+  "YTT",
+]
+ignore = [
+  "D1",
+  "D203",
+  "D213",
+  "PGH003",
+  "PLR09",
+  "RUF009",
+  "SLF001",
+  "TD001",
+  "TD002",
+  "TD003",
+  "TRY003",
+]
+target-version = "py38"
+exclude = [
+  ".eggs",
+  ".git",
+  ".hg",
+  ".mypy_cache",
+  ".tox",
+  ".venv",
+  "__pycached__",
+  "_build",
+  "buck-out",
+  "build",
+  "dist",
+]
+
+[tool.ruff.isort]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+preview = true
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | __pycached__
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.pyright]
+pythonVersion = "3.8"
+useLibraryCodeForTypes = true
+venvPath = "."
+venv = ".venv"
+exclude = [".venv", "**/migrations", "dist", "docs"]
+reportCallInDefaultInitializer = "warning"
+reportMatchNotExhaustive = "warning"
+reportMissingSuperCall = "warning"
+reportOverlappingOverload = "warning"
+reportUninitializedInstanceVariable = "none"
+reportUnnecessaryCast = "warning"
+reportUnnecessaryTypeIgnoreComment = "warning"
+reportUntypedNamedTuple = "error"
+reportUnusedExpression = "warning"
+reportUnnecessaryComparison = "warning"
+reportUnnecessaryContains = "warning"
+strictDictionaryInference = true
+strictListInference = true
+strictSetInference = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
