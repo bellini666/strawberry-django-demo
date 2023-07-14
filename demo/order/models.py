@@ -21,15 +21,15 @@ class Order(models.Model):
     """Order model."""
 
     class Meta:
-        verbose_name = _("Cart")
-        verbose_name_plural = _("Carts")
+        verbose_name = _("Order")
+        verbose_name_plural = _("Orders")
 
     items: RelatedManager[OrderItem]
 
     user_id: int
     user = models.ForeignKey["User"](
         "user.User",
-        verbose_name=_("Product"),
+        verbose_name=_("Customer"),
         on_delete=models.RESTRICT,
         related_name="+",
         db_index=True,
@@ -37,7 +37,7 @@ class Order(models.Model):
     cart_id: int
     cart = models.OneToOneField["Cart"](
         "Cart",
-        verbose_name=_("Product"),
+        verbose_name=_("Cart"),
         on_delete=models.RESTRICT,
         related_name="+",
         db_index=True,

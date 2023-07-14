@@ -53,7 +53,7 @@ class Product(models.Model):
     brand_id: int | None
     brand = models.ForeignKey(
         Brand,
-        verbose_name=_("Product"),
+        verbose_name=_("Brand"),
         on_delete=models.SET_NULL,
         related_name="images",
         db_index=True,
