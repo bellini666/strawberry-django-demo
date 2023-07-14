@@ -16,7 +16,7 @@ repos:
       - id: check-xml
       - id: check-symlinks
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.4
+    rev: v2.2.5
     hooks:
       - id: codespell
         types_or:
@@ -25,13 +25,13 @@ repos:
           - python
           - markdown
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.277
+    rev: v0.0.278
     hooks:
       - id: ruff
         args:
           - --fix
   - repo: https://github.com/psf/black
-    rev: 23.3.0
+    rev: 23.7.0
     hooks:
       - id: black
         args:
