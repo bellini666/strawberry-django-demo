@@ -56,6 +56,9 @@ class Mutation:
         product: strawberry_django.NodeInput,
         quantity: int = 1,
     ) -> CartItemType:
+        if quantity <= 0:
+            raise ValidationError({"quantity": _("Quantity needs to be equal or greater than 1")})
+
         cart_pk = info.context.request.session.get("cart_pk", None)
         if cart_pk is not None:
             cart = Cart.objects.filter(pk=cart_pk, status=Cart.Status.PENDING).first()
