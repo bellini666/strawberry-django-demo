@@ -125,6 +125,9 @@ class Cart(models.Model):
                 price=item.product.price,
             )
 
+        self.status = self.Status.FINISHED
+        self.save()
+
         return order
 
 
