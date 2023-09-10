@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Iterable, cast
+from typing import Iterable, cast  # noqa: UP035
 
 import strawberry
 import strawberry_django

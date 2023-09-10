@@ -5,10 +5,10 @@ description = ""
 authors = ["Thiago Bellini Ribeiro <thiago@bellini.dev>"]
 license = "MIT"
 readme = "README.md"
-packages = [{ include = "strawberry_django_demo" }]
+packages = [{ include = "demo" }]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.11"
 daphne = "^4.0.0"
 django = "^4.2.3"
 django-choices-field = "^2.2.2"
@@ -92,7 +92,7 @@ ignore = [
   "RUF012",
   "D401",
 ]
-target-version = "py38"
+target-version = "py311"
 exclude = [
   ".eggs",
   ".git",
@@ -115,7 +115,7 @@ exclude = [
 
 [tool.black]
 line-length = 100
-target-version = ['py38', 'py39', 'py310', 'py311']
+target-version = ['py311']
 preview = true
 exclude = '''
 /(
@@ -134,7 +134,7 @@ exclude = '''
 '''
 
 [tool.pyright]
-pythonVersion = "3.8"
+pythonVersion = "3.11"
 useLibraryCodeForTypes = true
 venvPath = "."
 venv = ".venv"

@@ -12,8 +12,9 @@ from strawberry.django.context import StrawberryDjangoContext
 from strawberry.types import info
 
 if TYPE_CHECKING:
+    from typing import TypeAlias
+
     from django.contrib.auth.models import AnonymousUser
-    from typing_extensions import TypeAlias
     from user.models import User
 
     from .dataloaders import DataLoaders
