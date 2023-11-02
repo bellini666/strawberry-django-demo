@@ -10,7 +10,7 @@ packages = [{ include = "demo" }]
 [tool.poetry.dependencies]
 python = "^3.11"
 daphne = "^4.0.0"
-django = "^4.2.3"
+django = "^4.2.7"
 django-choices-field = "^2.2.2"
 django-debug-toolbar = "^4.1.0"
 django-extensions = "^3.2.3"
