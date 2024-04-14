@@ -12,12 +12,13 @@ from strawberry.django.context import StrawberryDjangoContext
 from strawberry.types import info
 
 if TYPE_CHECKING:
-    from typing import TypeAlias
-
     from django.contrib.auth.models import AnonymousUser
     from user.models import User
 
     from .dataloaders import DataLoaders
+
+
+type Info = info.Info[Context, None]
 
 
 class HttpRequest(_HttpRequest):
@@ -58,6 +59,3 @@ class Context(StrawberryDjangoContext):
 
     async def aget_user(self, *, required: Literal[True] | None = None) -> User | None:
         return await sync_to_async(self.get_user)(required=required)
-
-
-Info: TypeAlias = info.Info[Context, None]

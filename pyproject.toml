@@ -8,7 +8,7 @@ readme = "README.md"
 packages = [{ include = "demo" }]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12"
 daphne = "^4.0.0"
 django = "^5.0.4"
 django-choices-field = "^2.2.2"
@@ -27,7 +27,7 @@ django-types = "^0.19.1"
 ruff = "^0.3.5"
 
 [tool.ruff]
-target-version = "py311"
+target-version = "py312"
 preview = true
 
 [tool.ruff.lint]
@@ -131,7 +131,7 @@ exclude = [
 [tool.ruff.format]
 
 [tool.pyright]
-pythonVersion = "3.11"
+pythonVersion = "3.12"
 useLibraryCodeForTypes = true
 venvPath = "."
 venv = ".venv"
