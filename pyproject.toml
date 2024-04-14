@@ -10,22 +10,22 @@ packages = [{ include = "demo" }]
 [tool.poetry.dependencies]
 python = "^3.11"
 daphne = "^4.0.0"
-django = "^4.2.7"
+django = "^5.0.4"
 django-choices-field = "^2.2.2"
 django-debug-toolbar = "^4.1.0"
 django-extensions = "^3.2.3"
 pillow = "^10.0.1"
 requests = "^2.31.0"
-strawberry-graphql = "^0.195.0"
-strawberry-graphql-django = "^0.12.0"
+strawberry-graphql = "^0.224.1"
+strawberry-graphql-django = "^0.37.0"
 typing-extensions = "^4.7.1"
 
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.3.0"
+black = "^24.3.0"
 django-debug-toolbar = "^4.1.0"
-django-types = "^0.17.0"
-ruff = "^0.0.278"
+django-types = "^0.19.1"
+ruff = "^0.3.5"
 
 [tool.ruff]
 line-length = 100
@@ -150,6 +150,8 @@ reportUntypedNamedTuple = "error"
 reportUnusedExpression = "warning"
 reportUnnecessaryComparison = "warning"
 reportUnnecessaryContains = "warning"
+reportIncompatibleVariableOverride = "none"
+reportIncompatibleMethodOverride = "none"
 strictDictionaryInference = true
 strictListInference = true
 strictSetInference = true
