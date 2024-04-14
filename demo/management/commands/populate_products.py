@@ -9,7 +9,7 @@ from demo.product.models import Brand, Product
 
 
 class Command(BaseCommand):
-    help = "Populate products using dummyjson.com"  # noqa: A003
+    help = "Populate products using dummyjson.com"
 
     @transaction.atomic
     def handle(self, *args, **options):

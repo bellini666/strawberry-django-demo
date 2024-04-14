@@ -55,10 +55,15 @@ class Migration(migrations.Migration):
                         verbose_name="Category",
                     ),
                 ),
-                ("description", models.TextField(default="", verbose_name="Description")),
+                (
+                    "description",
+                    models.TextField(default="", verbose_name="Description"),
+                ),
                 (
                     "price",
-                    models.DecimalField(decimal_places=2, max_digits=24, verbose_name="Price"),
+                    models.DecimalField(
+                        decimal_places=2, max_digits=24, verbose_name="Price"
+                    ),
                 ),
                 (
                     "brand",
@@ -90,7 +95,12 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("image", models.ImageField(max_length=2000, upload_to="", verbose_name="Image")),
+                (
+                    "image",
+                    models.ImageField(
+                        max_length=2000, upload_to="", verbose_name="Image"
+                    ),
+                ),
                 (
                     "product",
                     models.ForeignKey(

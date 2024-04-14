@@ -121,7 +121,9 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "price",
-                    models.DecimalField(decimal_places=2, max_digits=24, verbose_name="Price"),
+                    models.DecimalField(
+                        decimal_places=2, max_digits=24, verbose_name="Price"
+                    ),
                 ),
                 (
                     "order",

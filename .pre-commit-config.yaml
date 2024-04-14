@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.6.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -16,7 +16,7 @@ repos:
       - id: check-xml
       - id: check-symlinks
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.5
+    rev: v2.2.6
     hooks:
       - id: codespell
         types_or:
@@ -24,16 +24,10 @@ repos:
           - pyi
           - python
           - markdown
-  - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.278
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.7
     hooks:
+      - id: ruff-format
       - id: ruff
         args:
           - --fix
-  - repo: https://github.com/psf/black
-    rev: 23.7.0
-    hooks:
-      - id: black
-        args:
-          - --config
-          - pyproject.toml

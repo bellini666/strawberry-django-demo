@@ -11,9 +11,10 @@ from demo.product.types import ProductType
 class Query:
     product: ProductType = strawberry_django.node()
     products: list[ProductType] = strawberry_django.field(pagination=True)
-    products_conn: ListConnectionWithTotalCount[ProductType] = strawberry_django.connection()
+    products_conn: ListConnectionWithTotalCount[ProductType] = (
+        strawberry_django.connection()
+    )
 
 
 @strawberry.type
-class Mutation:
-    ...
+class Mutation: ...

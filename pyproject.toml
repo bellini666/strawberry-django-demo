@@ -22,14 +22,16 @@ typing-extensions = "^4.7.1"
 
 
 [tool.poetry.group.dev.dependencies]
-black = "^24.3.0"
 django-debug-toolbar = "^4.1.0"
 django-types = "^0.19.1"
 ruff = "^0.3.5"
 
 [tool.ruff]
-line-length = 100
-select = [
+target-version = "py311"
+preview = true
+
+[tool.ruff.lint]
+extend-select = [
   "A",
   "ASYNC100",
   "ASYNC101",
@@ -47,14 +49,14 @@ select = [
   "ERA",
   "EXE",
   "F",
-  "FLY",
+  "FURB",
   "G",
   "I",
   "ICN001",
   "INP",
-  "INT",
   "ISC",
   "N",
+  "PERF",
   "PGH",
   "PIE",
   "PL",
@@ -65,9 +67,9 @@ select = [
   "RET",
   "RSE",
   "RUF",
-  "TD",
   "SIM",
   "SLF",
+  "SLOT",
   "T10",
   "T20",
   "TCH",
@@ -77,22 +79,35 @@ select = [
   "W",
   "YTT",
 ]
-ignore = [
+extend-ignore = [
   "D1",
   "D203",
   "D213",
-  "PGH003",
-  "PLR09",
-  "RUF009",
-  "SLF001",
-  "TD001",
-  "TD002",
-  "TD003",
-  "TRY003",
-  "RUF012",
   "D401",
+  "D417",
+  "E203",
+  "PGH003",
+  "PLC0415",
+  "PLR09",
+  "PLR6301",
+  "RUF012",
+  "SLF001",
+  "TRY003",
+  # ruff formatter recommends to disable those
+  "COM812",
+  "COM819",
+  "D206",
+  "E111",
+  "E114",
+  "E117",
+  "E501",
+  "ISC001",
+  "Q000",
+  "Q001",
+  "Q002",
+  "Q003",
+  "W191",
 ]
-target-version = "py311"
 exclude = [
   ".eggs",
   ".git",
@@ -111,27 +126,9 @@ exclude = [
 "*/types.py" = ["TCH001", "TCH002"]
 "*/schema.py" = ["TCH001", "TCH002"]
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 
-[tool.black]
-line-length = 100
-target-version = ['py311']
-preview = true
-exclude = '''
-/(
-    \.eggs
-  | \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | __pycached__
-  | _build
-  | buck-out
-  | build
-  | dist
-)/
-'''
+[tool.ruff.format]
 
 [tool.pyright]
 pythonVersion = "3.11"

@@ -24,8 +24,7 @@ class HttpRequest(_HttpRequest):
     user: User | AnonymousUser
 
 
-class HttpResponse(_HttpResponse):
-    ...
+class HttpResponse(_HttpResponse): ...
 
 
 @dataclasses.dataclass
@@ -35,12 +34,10 @@ class Context(StrawberryDjangoContext):
     dataloaders: DataLoaders
 
     @overload
-    def get_user(self, *, required: Literal[True]) -> User:
-        ...
+    def get_user(self, *, required: Literal[True]) -> User: ...
 
     @overload
-    def get_user(self, *, required: None = ...) -> User | None:
-        ...
+    def get_user(self, *, required: None = ...) -> User | None: ...
 
     def get_user(self, *, required: Literal[True] | None = None) -> User | None:
         user = self.request.user
@@ -54,12 +51,10 @@ class Context(StrawberryDjangoContext):
         return cast("User", user)
 
     @overload
-    async def aget_user(self, *, required: Literal[True]) -> User:
-        ...
+    async def aget_user(self, *, required: Literal[True]) -> User: ...
 
     @overload
-    async def aget_user(self, *, required: None = ...) -> User | None:
-        ...
+    async def aget_user(self, *, required: None = ...) -> User | None: ...
 
     async def aget_user(self, *, required: Literal[True] | None = None) -> User | None:
         return await sync_to_async(self.get_user)(required=required)

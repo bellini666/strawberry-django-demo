@@ -57,7 +57,9 @@ class Mutation:
         quantity: int = 1,
     ) -> CartItemType:
         if quantity <= 0:
-            raise ValidationError({"quantity": _("Quantity needs to be equal or greater than 1")})
+            raise ValidationError({
+                "quantity": _("Quantity needs to be equal or greater than 1")
+            })
 
         cart_pk = info.context.request.session.get("cart_pk", None)
         if cart_pk is not None:
@@ -67,7 +69,9 @@ class Mutation:
 
         if cart is None:
             cart = Cart.objects.create()
-            transaction.on_commit(lambda: info.context.request.session.update({"cart_pk": cart.pk}))
+            transaction.on_commit(
+                lambda: info.context.request.session.update({"cart_pk": cart.pk})
+            )
 
         product_obj = product.id.resolve_node_sync(info, ensure_type=Product)
         try:
@@ -92,7 +96,9 @@ class Mutation:
         quantity: int,
     ) -> CartItemType:
         if quantity <= 0:
-            raise ValidationError({"quantity": _("Quantity needs to be equal or greater than 1")})
+            raise ValidationError({
+                "quantity": _("Quantity needs to be equal or greater than 1")
+            })
 
         cart_item = item.resolve_node_sync(info, ensure_type=CartItem)
 
