@@ -4,7 +4,14 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
 
-from .models import User
+from .models import Email, User
+
+
+class EmailAdminInline(admin.TabularInline):
+    model = Email
+    autocomplete_fields = [
+        "user",
+    ]
 
 
 @admin.register(User)
@@ -32,7 +39,12 @@ class UserAdmin(UserAdmin):
     add_fieldsets.append(
         (
             _("Extra"),
-            {"fields": ["avatar"]},
+            {
+                "fields": [
+                    "birth_date",
+                    "avatar",
+                ]
+            },
         ),
     )
     fieldsets = list(UserAdmin.fieldsets)
@@ -43,6 +55,9 @@ class UserAdmin(UserAdmin):
     fieldsets[1] = (  # type: ignore
         _("Personal Info"),
         {
-            "fields": ("avatar", *fieldsets[1][1]["fields"]),
+            "fields": ("avatar", "birth_date", *fieldsets[1][1]["fields"]),
         },
     )
+    inlines = [
+        EmailAdminInline,
+    ]

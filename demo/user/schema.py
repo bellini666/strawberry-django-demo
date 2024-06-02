@@ -10,11 +10,18 @@ from django.utils.translation import gettext_lazy as _
 
 from demo.base.types import Info
 
-from .types import UserType
+from .types import UserFilter, UserOrder, UserType
 
 
 @strawberry.type
 class Query:
+    user: UserType = strawberry_django.field()
+    users: list[UserType] = strawberry_django.field(
+        filters=UserFilter,
+        order=UserOrder,
+        pagination=True,
+    )
+
     @strawberry_django.field
     async def me(self, info: Info) -> UserType | None:
         """The current logged-in user, or `null` if it is not authenticated."""
