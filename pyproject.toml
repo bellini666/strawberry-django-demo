@@ -16,8 +16,8 @@ django-debug-toolbar = "^4.1.0"
 django-extensions = "^3.2.3"
 pillow = "^10.0.1"
 requests = "^2.31.0"
-strawberry-graphql = "^0.224.1"
-strawberry-graphql-django = "^0.37.1"
+strawberry-graphql = "^0.234.0"
+strawberry-graphql-django = "^0.42.0"
 typing-extensions = "^4.7.1"
 
 
